@@ -1,0 +1,17 @@
+version: 0.1
+
+phases:
+  build:
+    commands:
+    - gradle compileJava
+  post_build:
+    commands:
+    - gradle test
+    - gradle distZip
+artifacts:
+  files:
+  - deploy/setupTramWebServer.sh
+  - deploy/cloudInit.txt
+  - build/distributions/tramchester-1.0.zip
+  - data/tramData-1.0.zip
+  discard-paths: yes
